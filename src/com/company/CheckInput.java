@@ -8,7 +8,10 @@ import java.util.ArrayList;
 public class CheckInput {
     private String[] inputStrings;
     private String input;
-    private ArrayList<Bet> betinput = new ArrayList<>();
+    private double stake;
+    private int selection;
+    public static ArrayList<Bet> betinput = new ArrayList<>();
+    public static int[] noofselections= new int[101];
 
     public CheckInput(String input) {
         this.input = input;
@@ -24,12 +27,12 @@ public class CheckInput {
         divideInput();
     }
 
-    public void divideInput()
+    private void divideInput()
     {
         inputStrings=input.split(":");
     }
 
-    public int checkFirstWordForBet(){
+    private int checkFirstWordForBet(){
         if(inputStrings[0].equalsIgnoreCase("Bet")){
             return 1;
         }
@@ -44,7 +47,7 @@ public class CheckInput {
         }
     }
 
-    public boolean checkProductSelection() {
+    private boolean checkProductSelection() {
         boolean a=false;
        if((inputStrings[1].startsWith("p")||inputStrings[1].startsWith("P"))&&inputStrings[1].length()==2){
             for (int i=1;i<=5;i++){
@@ -56,10 +59,10 @@ public class CheckInput {
        return a;
     }
 
-    public boolean checkStake(){
+    private boolean checkStake(){
         try {
-            double x = Double.parseDouble(inputStrings[3]);
-            return !(x < 10);
+            stake = Double.parseDouble(inputStrings[3]);
+            return !(stake < 10);
         }
         catch (Exception e)
         {
@@ -68,10 +71,10 @@ public class CheckInput {
         }
     }
 
-    public boolean checkSelection(){
+    private boolean checkSelection(){
         try{
-            int x=Integer.parseInt(inputStrings[2]);
-            return x <= 100 & x > 0;
+            selection=Integer.parseInt(inputStrings[2]);
+            return selection <= 100 & selection > 0;
         }
         catch (Exception e)
         {
@@ -83,5 +86,29 @@ public class CheckInput {
 
     public boolean checkInputStrings(){
         return inputStrings.length == 5;
+    }
+
+    public boolean check()
+    {
+        if(checkSelection()&&checkInputStrings()&&checkProductSelection()&&checkStake()){
+            if(checkFirstWordForBet()==1)
+            {
+                noofselections[selection]++;
+                Bet b=new Bet(inputStrings[1],selection,stake,inputStrings[4]);
+                if(noofselections[selection]<=3)
+                {
+                    b.setLegal(true);
+                }
+                else
+                {
+                    b.setLegal(false);
+                }
+                betinput.add(b);
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

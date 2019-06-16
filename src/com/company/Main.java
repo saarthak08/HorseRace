@@ -26,9 +26,14 @@ public class Main {
         while(!s.equals("0"))
         {
             checkInput.setInput(s);
+            if(checkInput.check())
+            {
+            }
+            else{
+                System.out.println("Invalid Input");
+            }
             s=sc.nextLine();
         }
-
     }
 }
 
