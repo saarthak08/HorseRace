@@ -5,6 +5,7 @@ import com.company.input.SetBetInput;
 import com.company.model.Bet;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -12,6 +13,9 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static CheckInput checkInput;
     private static Calculate calculate;
+    public static ArrayList<Bet> betinput = new ArrayList<>();
+    public static int[] noofselections= new int[101];
+    public static SetBetInput setInput=new SetBetInput();
 
 
 
@@ -29,17 +33,8 @@ public class Main {
         while(!s.equals("0"))
         {
             checkInput.setInput(s);
-            checkInput.check();
+            checkInput.checkFirstWordInInput();
             s=sc.nextLine();
-        }
-        for(int i=1;i<=5;i++)
-        {
-            for(int j=0;j<SetBetInput.al[i].size();j++){
-                try {
-                    System.out.print(SetBetInput.al[i].get(j).getProduct());
-                }catch (Exception e){}
-            }
-            System.out.println();
         }
     }
 }

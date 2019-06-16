@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.model.Bet;
-import com.company.model.Commission;
 
 import java.util.ArrayList;
 
