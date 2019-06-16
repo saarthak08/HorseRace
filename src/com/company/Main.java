@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static CheckInput checkInput;
+    private static Calculate calculate;
 
 
     public static void main(String[] args) throws IOException {
@@ -26,14 +27,21 @@ public class Main {
         while(!s.equals("0"))
         {
             checkInput.setInput(s);
-            if(checkInput.check())
-            {
-            }
-            else{
-                System.out.println("Invalid Input");
-            }
+            checkInput.check();
             s=sc.nextLine();
         }
+        /*for(Bet b:CheckInput.betinput){
+            if(b.getLegal()==1)
+            {
+                System.out.println("Valid Input Form");
+            }
+            else if(b.getLegal()==0){
+                System.out.println("Ineligible");
+            }
+            else{
+                System.out.println("Invalid input form");
+            }
+        }*/
     }
 }
 

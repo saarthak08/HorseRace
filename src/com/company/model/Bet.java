@@ -5,7 +5,7 @@ public class Bet {
     private int selection;
     private double stake;
     private String name;
-    private boolean legal;
+    private int legal;
 
     public Bet(String product, int selection, double stake, String name) {
         this.product = product;
@@ -14,11 +14,13 @@ public class Bet {
         this.name=name;
     }
 
-    public boolean isLegal() {
+    public Bet(){}
+
+    public int getLegal() {
         return legal;
     }
 
-    public void setLegal(boolean legal) {
+    public void setLegal(int legal) {
         this.legal = legal;
     }
 

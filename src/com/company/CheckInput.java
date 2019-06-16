@@ -50,9 +50,10 @@ public class CheckInput {
     private boolean checkProductSelection() {
         boolean a=false;
        if((inputStrings[1].startsWith("p")||inputStrings[1].startsWith("P"))&&inputStrings[1].length()==2){
-            for (int i=1;i<=5;i++){
-                if(inputStrings[1].charAt(1)=='i'){
+           for (int i=1;i<=5;i++){
+                if(inputStrings[1].charAt(1)==i+48){
                     a=true;
+                    return a;
                 }
             }
        }
@@ -88,27 +89,30 @@ public class CheckInput {
         return inputStrings.length == 5;
     }
 
-    public boolean check()
+    public void check()
     {
-        if(checkSelection()&&checkInputStrings()&&checkProductSelection()&&checkStake()){
+        if(checkSelection()&&checkInputStrings()&&checkProductSelection()&&checkStake()&&inputStrings[4].length()!=0&&checkFirstWordForBet()!=0){
             if(checkFirstWordForBet()==1)
             {
                 noofselections[selection]++;
                 Bet b=new Bet(inputStrings[1],selection,stake,inputStrings[4]);
                 if(noofselections[selection]<=3)
                 {
-                    b.setLegal(true);
+                    b.setLegal(1);
                 }
                 else
                 {
-                    b.setLegal(false);
+                    b.setLegal(0);
                 }
                 betinput.add(b);
             }
-            return true;
         }
         else{
-            return false;
+            Bet b=new Bet();
+            b.setProduct(input);
+            b.setLegal(-1);
+            betinput.add(b);
+            System.out.println("Invalid Input");
         }
     }
 }
