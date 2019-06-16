@@ -1,4 +1,4 @@
-package com.company;
+package com.company.input;
 
 import com.company.model.Bet;
 import com.company.model.Position;
@@ -12,6 +12,8 @@ public class CheckInput {
     private int selection;
     public static ArrayList<Bet> betinput = new ArrayList<>();
     public static int[] noofselections= new int[101];
+    private static SetBetInput setInput=new SetBetInput();
+
 
     public CheckInput(String input) {
         this.input = input;
@@ -63,7 +65,7 @@ public class CheckInput {
     private boolean checkStake(){
         try {
             stake = Double.parseDouble(inputStrings[3]);
-            return !(stake < 10);
+            return stake >= 10;
         }
         catch (Exception e)
         {
@@ -89,7 +91,7 @@ public class CheckInput {
         return inputStrings.length == 5;
     }
 
-    public void check()
+    public boolean check()
     {
         if(checkSelection()&&checkInputStrings()&&checkProductSelection()&&checkStake()&&inputStrings[4].length()!=0&&checkFirstWordForBet()!=0){
             if(checkFirstWordForBet()==1)
@@ -98,6 +100,8 @@ public class CheckInput {
                 Bet b=new Bet(inputStrings[1],selection,stake,inputStrings[4]);
                 if(noofselections[selection]<=3)
                 {
+                    setInput.setB(b);
+                    setInput.organizeInput();
                     b.setLegal(1);
                 }
                 else
@@ -105,7 +109,9 @@ public class CheckInput {
                     b.setLegal(0);
                 }
                 betinput.add(b);
+                return true;
             }
+            return false;
         }
         else{
             Bet b=new Bet();
@@ -113,6 +119,7 @@ public class CheckInput {
             b.setLegal(-1);
             betinput.add(b);
             System.out.println("Invalid Input");
+            return false;
         }
     }
 }

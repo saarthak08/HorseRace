@@ -1,10 +1,10 @@
 package com.company;
 
+import com.company.input.CheckInput;
+import com.company.input.SetBetInput;
 import com.company.model.Bet;
-import com.company.model.Position;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -14,9 +14,11 @@ public class Main {
     private static Calculate calculate;
 
 
+
     public static void main(String[] args) throws IOException {
         System.out.println("Enter bets & result or press \'0\' to exit:");
         takeInput();
+
     }
 
     private static void takeInput() throws IOException {
@@ -30,18 +32,15 @@ public class Main {
             checkInput.check();
             s=sc.nextLine();
         }
-        /*for(Bet b:CheckInput.betinput){
-            if(b.getLegal()==1)
-            {
-                System.out.println("Valid Input Form");
+        for(int i=1;i<=5;i++)
+        {
+            for(int j=0;j<SetBetInput.al[i].size();j++){
+                try {
+                    System.out.print(SetBetInput.al[i].get(j).getProduct());
+                }catch (Exception e){}
             }
-            else if(b.getLegal()==0){
-                System.out.println("Ineligible");
-            }
-            else{
-                System.out.println("Invalid input form");
-            }
-        }*/
+            System.out.println();
+        }
     }
 }
 

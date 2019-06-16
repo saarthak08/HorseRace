@@ -42,3 +42,13 @@ Output - Text file
 Operation:Selection:LuckyNumber:Amount:Name:Winning_Amount:Result
 Bet:P4:2:2:Mukul:Ineligible
 
+
+bet:p2:2:10:abc
+bet:p1:1:10:abc
+bet:p2:2:10:abc
+bet:p1:2:10:abc
+bet:p1:4:10:abc
+bet:p3:6:10:abc
+bet:p4:6:10:abc
+bet:p5:6:10:abc
+

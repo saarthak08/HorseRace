@@ -1,16 +1,18 @@
 package com.company;
 
+import com.company.model.Bet;
 import com.company.model.Commission;
+
+import java.util.ArrayList;
 
 public class Calculate {
     private int commission;
     private int totalnoofbets;
     private double totalamountofbets;
 
-    public Calculate(int commission, int totalnoofbets,double totalamountofbets) {
+    public Calculate(int commission, int totalnoofbets, double totalamountofbets, ArrayList<Bet> bet) {
         this.commission = commission;
         this.totalnoofbets = totalnoofbets;
-        this.totalamountofbets=totalamountofbets;
     }
 
 
