@@ -1,6 +1,8 @@
 package com.company;
 
 import com.company.input.CheckInput;
+import com.company.input.Commission;
+import com.company.input.Result;
 import com.company.input.SetBetInput;
 import com.company.model.Bet;
 
@@ -16,7 +18,11 @@ public class Main {
     public static ArrayList<Bet> betinput = new ArrayList<>();
     public static int[] noofselections= new int[101];
     public static SetBetInput setInput=new SetBetInput();
-
+    public static Commission commission;
+    public static Result result;
+    public static int flag=0;
+    private static double totalamountofbets=0;
+    private static double[] output;
 
 
     public static void main(String[] args) throws IOException {
@@ -36,6 +42,29 @@ public class Main {
             checkInput.checkFirstWordInInput();
             s=sc.nextLine();
         }
+        output=new double[SetBetInput.al.length];
+        calculate();
+        for(int i=0;i<5;i++)
+        {
+            System.out.println(output[i]);
+        }
+    }
+
+    private static void calculate()
+    {
+        for(Bet b:betinput) {
+            totalamountofbets =totalamountofbets+b.getStake();
+        }
+        calculate = new Calculate(SetBetInput.al[1], commission.getFirst(), result.getFirst(),totalamountofbets);
+        output[0]=calculate.calculateOutput();
+        calculate=new Calculate(SetBetInput.al[2],commission.getSecond(),result.getSecond(),totalamountofbets);
+        output[1]=calculate.calculateOutput();
+        calculate=new Calculate(SetBetInput.al[3],commission.getThird(),result.getThird(),totalamountofbets);
+        output[2]=calculate.calculateOutput();
+        calculate=new Calculate(SetBetInput.al[4],commission.getFourth(),result.getFourth(),totalamountofbets);
+        output[3]=calculate.calculateOutput();
+        calculate=new Calculate(SetBetInput.al[5],commission.getFifth(),result.getFifth(),totalamountofbets);
+        output[4]=calculate.calculateOutput();
     }
 }
 

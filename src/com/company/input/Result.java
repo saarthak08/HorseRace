@@ -1,11 +1,11 @@
 package com.company.input;
 
 public class Result {
-    private double first;
-    private double second;
-    private double third;
-    private double fourth;
-    private double fifth;
+    private int first;
+    private int second;
+    private int third;
+    private int fourth;
+    private int fifth;
     private String input;
     private String inputStrings[];
 
@@ -14,44 +14,60 @@ public class Result {
        this.inputStrings=inputStrings;
     }
 
-    public double getFirst() {
+    public int getFirst() {
         return first;
     }
 
-    public void setFirst(double first) {
+    public void setFirst(int first) {
         this.first = first;
     }
 
-    public double getSecond() {
+    public int getSecond() {
         return second;
     }
 
-    public void setSecond(double second) {
+    public void setSecond(int second) {
         this.second = second;
     }
 
-    public double getThird() {
+    public int getThird() {
         return third;
     }
 
-    public void setThird(double third) {
+    public void setThird(int third) {
         this.third = third;
     }
 
-    public double getFourth() {
+    public int getFourth() {
         return fourth;
     }
 
-    public void setFourth(double fourth) {
+    public void setFourth(int fourth) {
         this.fourth = fourth;
     }
 
-    public double getFifth() {
+    public int getFifth() {
         return fifth;
     }
 
-    public void setFifth(double fifth) {
+    public void setFifth(int fifth) {
         this.fifth = fifth;
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
+    }
+
+    public String[] getInputStrings() {
+        return inputStrings;
+    }
+
+    public void setInputStrings(String[] inputStrings) {
+        this.inputStrings = inputStrings;
     }
 
     private boolean checkTotalInputStrings(){

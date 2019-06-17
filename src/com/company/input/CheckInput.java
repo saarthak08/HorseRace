@@ -1,11 +1,12 @@
 package com.company.input;
 
+import com.company.Main;
+
 public class CheckInput {
     private String[] inputStrings;
     private String input;
     private CheckBet bet;
-    private Commission commission;
-    private Result result;
+
 
 
     public CheckInput(String input) {
@@ -33,12 +34,18 @@ public class CheckInput {
             bet.check();
         }
         else if(inputStrings[0].equalsIgnoreCase("Commission")){
-            commission=new Commission(input,inputStrings);
-            commission.checkCommission();
+            Commission commission=new Commission(input,inputStrings);
+            if(commission.checkCommission()){
+                Main.commission=commission;
+            }
+
         }
         else if(inputStrings[0].equalsIgnoreCase("Result")){
-            result=new Result(input,inputStrings);
-            result.checkResult();
+            Result result=new Result(input,inputStrings);
+            if(result.checkResult()){
+                Main.result=result;
+                Main.flag=1;
+            }
         }
     }
 
