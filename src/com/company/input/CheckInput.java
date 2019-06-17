@@ -7,7 +7,7 @@ public class CheckInput {
     private String input;
     private CheckBet bet;
 
-
+    public CheckInput(){}
 
     public CheckInput(String input) {
         this.input = input;

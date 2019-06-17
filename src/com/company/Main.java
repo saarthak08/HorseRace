@@ -36,14 +36,13 @@ public class Main {
 
     private static void takeInput() throws IOException {
         //System.out.println("Enter the path of the text file for input:");
-        String s;
-        s=sc.nextLine();
-        checkInput=new CheckInput(s);
-        while(!s.equals("0"))
+        String s="s";
+        checkInput=new CheckInput();
+        while(!s.equals("0")&&Main.flag==0)
         {
+            s=sc.nextLine();
             checkInput.setInput(s);
             checkInput.checkFirstWordInInput();
-            s=sc.nextLine();
         }
         output=new double[SetBetInput.al.length];
         calculate();
