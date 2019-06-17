@@ -48,7 +48,7 @@ Output Format
 
 Operation:Selection:LuckyNumber:Amount:Name:Winning_Amount:Result
 
-Bet:P4:2:2:Mukul:Ineligible
+Bet:P4:2:2:Mukul -- Ineligible
 
 Bet:p2:2:10.0:abc -- Winner! Resultant Amount: $12.5
 
