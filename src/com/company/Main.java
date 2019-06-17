@@ -10,6 +10,7 @@ import com.company.model.Output;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 
 public class Main {
@@ -47,11 +48,8 @@ public class Main {
         output=new double[SetBetInput.al.length];
         calculate();
         orderResult();
-        /*for(int i=0;i<5;i++)
-        {
-            System.out.println(output[i]);
-        }*/
-        Output outputObject=new Output(betinput,SetBetInput.al,output,resultInInt);
+       Output outputObject=new Output(betinput,SetBetInput.al,output,resultInInt);
+       outputObject.showOutput();
     }
 
     private static void calculate()

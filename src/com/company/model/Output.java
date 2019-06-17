@@ -16,7 +16,6 @@ public class Output {
         this.groupedBets = groupedBets;
         this.outputStake=outputStake;
         this.result=result;
-        showOutput();
     }
 
     public ArrayList<Bet> getTotalbets() {
@@ -58,6 +57,7 @@ public class Output {
                             else{
                                 System.out.println("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName()+ " -- Lost");
                             }
+                            break;
                         }
                     }
                 }
