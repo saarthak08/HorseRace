@@ -1,0 +1,11 @@
+Bet:p2:2:10.0:abc -- Winner! Resultant Amount: $12.5
+Bet:p1:1:10.0:abc -- Winner! Resultant Amount: $30.0
+Bet:p2:2:10.0:abc -- Winner! Resultant Amount: $12.5
+Bet:p1:2:10.0:abc -- Lost
+Bet:p1:4:10.0:abc -- Lost
+Bet:p3:5:10.0:abc -- Lost
+Bet:p4:5:10.0:abc -- Lost
+Bet:p5:4:10.0:abc -- Lost
+Bet:p5:3:10.0:abc -- Lost
+bet  -- Invalid Input
+Bet:p5:2:10.0:abc  -- Ineligible

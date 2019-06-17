@@ -1,7 +1,9 @@
 package com.company.model;
 
-import com.company.input.Result;
+import com.company.model.Bet;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Output {
@@ -9,6 +11,8 @@ public class Output {
     private ArrayList<Bet>[] groupedBets;
     private double[] outputStake;
     private int[] result;
+    FileWriter fw;
+    PrintWriter writer;
 
 
     public Output(ArrayList<Bet> totalbets, ArrayList<Bet>[] groupedBets, double[] outputStake, int result[]) {
@@ -16,7 +20,13 @@ public class Output {
         this.groupedBets = groupedBets;
         this.outputStake=outputStake;
         this.result=result;
+        try{
+            fw=new FileWriter("//home//saarthak//IdeaProjects//HorseRace//output.txt");
+            writer= new PrintWriter(fw);
+            writer.print("");
+        }catch(Exception e){e.printStackTrace();}
     }
+
 
     public ArrayList<Bet> getTotalbets() {
         return totalbets;
@@ -34,34 +44,35 @@ public class Output {
         this.groupedBets = groupedBets;
     }
 
-    public void showOutput()
-    {
-        for(Bet b:totalbets){
-            if(b.getLegal()==-1)
-            {
-                System.out.println(b.getProduct()+"  -- Invalid Input");
-            }
-            else if(b.getLegal() ==0){
-                System.out.println("Bet:"+b.getProduct()+":"+b.getSelection()+":"+b.getStake()+":"+b.getName()+"  -- Ineligible");
-            }
-            else if(b.getLegal()==1)
-            {
-                for(int i=1;i<=5;i++){
-                    for(int j=0; j<groupedBets[i].size();j++){
-                        Bet x=groupedBets[i].get(j);
-                        if (x.getName().equals(b.getName()) && x.getStake() == b.getStake() && x.getSelection() == b.getSelection() && x.getProduct().equals(b.getProduct()))
-                        {
-                            if(b.getSelection()==result[i-1]) {
-                                System.out.println("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName() + " -- Winner! Resultant Amount: " + outputStake[i - 1]);
+    public void showOutput() {
+        try {
+            for (Bet b : totalbets) {
+                if (b.getLegal() == -1) {
+                    fw.write(b.getProduct() + "  -- Invalid Input\n");
+                } else if (b.getLegal() == 0) {
+                    fw.write("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName() + "  -- Ineligible\n");
+                    System.out.println();
+                } else if (b.getLegal() == 1) {
+                    for (int i = 1; i <= 5; i++) {
+                        for (int j = 0; j < groupedBets[i].size(); j++) {
+                            Bet x = groupedBets[i].get(j);
+                            if (x.getName().equals(b.getName()) && x.getStake() == b.getStake() && x.getSelection() == b.getSelection() && x.getProduct().equals(b.getProduct())) {
+                                if (b.getSelection() == result[i - 1]) {
+                                    fw.write("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName() + " -- Winner! Resultant Amount: $" + outputStake[i - 1]+"\n");
+                                } else {
+                                    fw.write("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName() + " -- Lost\n");
+                                }
+                                break;
                             }
-                            else{
-                                System.out.println("Bet:" + b.getProduct() + ":" + b.getSelection() + ":" + b.getStake() + ":" + b.getName()+ " -- Lost");
-                            }
-                            break;
                         }
                     }
                 }
             }
+            writer.close();
+            fw.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
+
 }

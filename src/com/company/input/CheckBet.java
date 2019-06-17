@@ -45,6 +45,7 @@ public class CheckBet {
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             return false;
         }
     }
@@ -56,6 +57,7 @@ public class CheckBet {
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             return false;
         }
 

@@ -10,7 +10,6 @@ import com.company.model.Output;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Set;
 
 
 public class Main {
@@ -36,13 +35,21 @@ public class Main {
 
     private static void takeInput() throws IOException {
         //System.out.println("Enter the path of the text file for input:");
-        String s="s";
+        File file = new File("//home//saarthak//IdeaProjects//HorseRace//input.txt");
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String st;
         checkInput=new CheckInput();
-        while(!s.equals("0")&&Main.flag==0)
-        {
-            s=sc.nextLine();
-            checkInput.setInput(s);
-            checkInput.checkFirstWordInInput();
+        if (br != null) {
+            while ((st = br.readLine()) != null)
+            {
+                checkInput.setInput(st);
+                checkInput.checkFirstWordInInput();
+            }
         }
         output=new double[SetBetInput.al.length];
         calculate();
@@ -79,16 +86,3 @@ public class Main {
 }
 
 
-        /*File file = new File("C:\\Users\\pankaj\\Desktop\\test.txt");
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        String st;
-        if (br != null) {
-            while ((st = br.readLine()) != null)
-                System.out.println(st);
-        }*/
