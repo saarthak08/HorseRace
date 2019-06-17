@@ -43,17 +43,4 @@ Operation:Selection:LuckyNumber:Amount:Name:Winning_Amount:Result
 Bet:P4:2:2:Mukul:Ineligible
 
 
-bet:p2:2:10:abc
-bet:p1:1:10:abc
-bet:p2:2:10:abc
-bet:p1:2:10:abc
-bet:p1:4:10:abc
-bet:p3:5:10:abc
-bet:p4:5:10:abc
-bet:p5:4:10:abc
-bet:p5:3:10:abc
-bet
-bet:p5:2:10:abc
-Commission:30:25:15:10:5
-Result:1:2:3:4:5
 
