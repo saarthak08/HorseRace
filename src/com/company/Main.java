@@ -5,6 +5,7 @@ import com.company.input.Commission;
 import com.company.input.Result;
 import com.company.input.SetBetInput;
 import com.company.model.Bet;
+import com.company.model.Output;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Main {
     public static int flag=0;
     private static double totalamountofbets=0;
     private static double[] output;
+    private static int resultInInt[]=new int[5];
 
 
     public static void main(String[] args) throws IOException {
@@ -32,7 +34,7 @@ public class Main {
     }
 
     private static void takeInput() throws IOException {
-        System.out.println("Enter the path of the text file for input:");
+        //System.out.println("Enter the path of the text file for input:");
         String s;
         s=sc.nextLine();
         checkInput=new CheckInput(s);
@@ -44,10 +46,12 @@ public class Main {
         }
         output=new double[SetBetInput.al.length];
         calculate();
-        for(int i=0;i<5;i++)
+        orderResult();
+        /*for(int i=0;i<5;i++)
         {
             System.out.println(output[i]);
-        }
+        }*/
+        Output outputObject=new Output(betinput,SetBetInput.al,output,resultInInt);
     }
 
     private static void calculate()
@@ -66,6 +70,15 @@ public class Main {
         calculate=new Calculate(SetBetInput.al[5],commission.getFifth(),result.getFifth(),totalamountofbets);
         output[4]=calculate.calculateOutput();
     }
+
+    private static void orderResult(){
+        resultInInt[0]=result.getFirst();
+        resultInInt[1]=result.getSecond();
+        resultInInt[2]=result.getThird();
+        resultInInt[3]=result.getFourth();
+        resultInInt[4]=result.getFifth();
+    }
+
 }
 
 

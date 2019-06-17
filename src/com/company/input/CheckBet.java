@@ -45,7 +45,6 @@ public class CheckBet {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }
@@ -57,7 +56,6 @@ public class CheckBet {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
 
@@ -74,9 +72,9 @@ public class CheckBet {
                 Bet b=new Bet(inputStrings[1],selection,stake,inputStrings[4]);
                 if(Main.noofselections[selection]<=3)
                 {
+                    b.setLegal(1);
                     Main.setInput.setB(b);
                     Main.setInput.organizeInput();
-                    b.setLegal(1);
                 }
                 else
                 {

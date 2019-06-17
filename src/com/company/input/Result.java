@@ -86,7 +86,6 @@ public class Result {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }
@@ -103,7 +102,6 @@ public class Result {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }

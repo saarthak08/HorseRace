@@ -68,7 +68,6 @@ public class Commission {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }
@@ -83,7 +82,6 @@ public class Commission {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }
