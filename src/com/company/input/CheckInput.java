@@ -1,6 +1,8 @@
 package com.company.input;
 
 import com.company.Main;
+import com.company.model.Commission;
+import com.company.model.Result;
 
 public class CheckInput {
     private String[] inputStrings;

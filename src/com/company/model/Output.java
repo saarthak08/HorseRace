@@ -21,7 +21,7 @@ public class Output {
         this.outputStake=outputStake;
         this.result=result;
         try{
-            fw=new FileWriter("//home//saarthak//IdeaProjects//HorseRace//output.txt");
+            fw=new FileWriter(System.getProperty("user.dir")+"//output.txt");
             writer= new PrintWriter(fw);
             writer.print("");
         }catch(Exception e){e.printStackTrace();}
@@ -68,6 +68,7 @@ public class Output {
                     }
                 }
             }
+            System.out.println("Output is generated at "+System.getProperty("user.dir")+"/output.txt");
             writer.close();
             fw.close();
         }catch (Exception e){

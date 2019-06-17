@@ -45,7 +45,7 @@ public class CheckBet {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+           // e.printStackTrace();
             return false;
         }
     }
@@ -57,7 +57,7 @@ public class CheckBet {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+           // e.printStackTrace();
             return false;
         }
 
@@ -90,7 +90,7 @@ public class CheckBet {
             b.setProduct(input);
             b.setLegal(-1);
             Main.betinput.add(b);
-            System.out.println("Invalid Input");
+           // System.out.println("Invalid Input");
             return false;
         }
     }

@@ -1,4 +1,4 @@
-package com.company.input;
+package com.company.model;
 
 public class Commission {
     private double first;
